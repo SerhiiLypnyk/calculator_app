@@ -1,0 +1,21 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+db.sqlite3
+
+# Environment and logs
+*.log
+*.pot
+*.pyc
+*.sql
+*.sqlite3
+db.sqlite3-journal
+
+# IDE-specific files
+.idea/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Venv
+tenv/
