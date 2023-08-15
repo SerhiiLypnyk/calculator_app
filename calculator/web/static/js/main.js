@@ -1,10 +1,8 @@
 $(document).ready(function() {
     // Load operations from the API
     $.get("/api/calculator/operations/", function(data) {
-        const operationSelect = $("#operation");
-        for (let operation of data) {
-            operationSelect.append(new Option(operation, operation));
-        }
+        console.log(data);
+        $('#available-operations').text(data.available_operations.join(", "));
     });
 
     // Calculate button listener
@@ -15,24 +13,16 @@ $(document).ready(function() {
         // Clear previous result
         $("#result").text('');
 
-        const operand1 = $("#operand1").val();
-        const operand2 = $("#operand2").val();
-        const operation = $("#operation").val();
-
+        const expression = $('#expression').val();
         $.post("/api/calculator/calculate/", {
-            operand1: operand1,
-            operand2: operand2,
-            operation: operation
+            expression: expression
         }, function(data) {
-            $("#result").text(data.result);
+            $('#result').text(data.result);
+            $('#error').text('');
         }).fail(function(error) {
             const errors = error.responseJSON;
-            if(errors.operand1) {
-                $("#operand1-error").text(errors.operand1[0]);
-            }
-            if(errors.operand2) {
-                $("#operand2-error").text(errors.operand2[0]);
-            }
+            $('#error').text(errors.error);
+            $('#result').text('-');
         });
     });
 });

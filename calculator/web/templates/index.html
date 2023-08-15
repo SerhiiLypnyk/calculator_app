@@ -13,21 +13,17 @@
 
 <body>
     <div class="calculator">
-        <div class="display">
-            <div class="operand">
-                <input type="number" id="operand1" placeholder="Enter first number">
-                <span class="error" id="operand1-error"></span>
-            </div>
-            <select id="operation">
-                <!-- Operations will be populated using JavaScript -->
-            </select>
-            <div class="operand">
-                <input type="number" id="operand2" placeholder="Enter second number">
-                <span class="error" id="operand2-error"></span>
-            </div>
+        <div id="operations">
+            <strong>Available Operations: </strong><span id="available-operations">Loading...</span>
         </div>
-        <button id="calculateBtn">Calculate</button>
-        <div id="resultDisplay">Result: <span id="result">0</span></div>
+        <div>
+            <input type="text" id="expression" placeholder="Enter your expression" />
+            <button id="calculateBtn">Calculate</button>
+        </div>
+        <div id="resultDisplay">
+            <strong>Result: </strong><span id="result">-</span>
+            <p class="error" id="error"></p>
+        </div>
     </div>
 </body>
 

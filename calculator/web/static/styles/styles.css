@@ -14,16 +14,14 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.display {
-    display: flex;
-    margin-bottom: 10px;
+.error {
+    color: red;
 }
 
-#operand1, #operation, #operand2 {
-    margin: 5px;
+#operations{
+    margin-bottom: 20px;
 }
 
-.operand{
-    display: flex;
-    flex-direction: column;
+#resultDisplay{
+    margin-top: 20px;
 }
